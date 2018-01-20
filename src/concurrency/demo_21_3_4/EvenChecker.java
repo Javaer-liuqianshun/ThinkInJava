@@ -1,4 +1,4 @@
-package concurrency.demo_21_3_2.use_lock;
+package concurrency.demo_21_3_4;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -6,25 +6,24 @@ import java.util.concurrent.Executors;
 /**
  * @ Author: liuqianshun
  * @ Description:
- * @ Date: Created in 2018-01-17
+ * @ Date: Created in 2018-01-20
  * @ Modified:
  **/
 public class EvenChecker implements Runnable {
-
     private IntGenerator generator;
-    private final int id;
 
-    public EvenChecker(IntGenerator g, int ident) {
-        this.generator = g;
-        this.id = ident;
+    public EvenChecker(IntGenerator generator) {
+        this.generator = generator;
     }
+
 
     @Override
     public void run() {
         while (!generator.isCanceled()) {
             int value = generator.next();
+            System.out.println(Thread.currentThread().getName()+", value: " + value);
             if (value % 7 != 0) {
-                System.out.println(value + " 不是7的倍数,关闭7的倍数产生!");
+                System.out.println(Thread.currentThread().getName() +"," + value + " 不是7的倍数,关闭7的倍数产生!");
                 generator.cancel();
             }
         }
@@ -40,13 +39,13 @@ public class EvenChecker implements Runnable {
         ExecutorService exec = null;
         for (int i = 0; i < ident; i++) {
             exec = Executors.newCachedThreadPool();
-            exec.execute(new EvenChecker(generator, i));
+            exec.execute(new EvenChecker(generator));
         }
         exec.shutdown();
     }
 
     /**
-     * 指定ident
+     * 指定线程数量
      *
      * @param generator
      */
@@ -54,8 +53,9 @@ public class EvenChecker implements Runnable {
         test(generator, 100);
     }
 
-
     public static void main(String[] args) {
-        EvenChecker.test(new MutexEvenGenerator());
+        EvenChecker.test(new AtomicEvenGenerator());
     }
+
+
 }
