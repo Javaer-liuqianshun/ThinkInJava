@@ -5,12 +5,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @ Author: liuqianshun
  * @ Description:
- *
- * 书685案例
- *
- * 用原子类对 demo_21_3_2/use_lock中的MutexEvenGenerator进行重写
- *
- *
  * @ Date: Created in 2018-01-20
  * @ Modified:
  **/

@@ -1,8 +1,11 @@
-package concurrency.demo1_runnable;
+package concurrency.demo_21_2_1;
 
 /**
  * @ Author: liuqianshun
- * @ Description:
+ * @ Description: 创建线程
+ *
+ * 书656案例
+ *
  * @ Date: Created in 2018-01-16
  * @ Modified:
  **/

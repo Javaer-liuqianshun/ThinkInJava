@@ -7,7 +7,7 @@ package concurrency.demo4_executor;
  * @ Modified:
  **/
 
-import concurrency.demo1_runnable.LiftOff;
+import concurrency.demo_21_2_1.LiftOff;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

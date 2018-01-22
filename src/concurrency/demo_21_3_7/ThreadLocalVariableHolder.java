@@ -11,31 +11,28 @@ import java.util.concurrent.Executors;
  * @ Modified:
  **/
 public class ThreadLocalVariableHolder {
-    private static ThreadLocal<Integer> value =  new ThreadLocal(){
+    private static ThreadLocal<Integer> value = new ThreadLocal() {
         private Random random = new Random(47);
 
         @Override
         protected Integer initialValue() {
-            synchronized (this){
-                return random.nextInt(10000);
-            }
+            return random.nextInt(10000);
         }
     };
 
-    public static void increment(){
-        value.set(value.get()+1);
+    public static void increment() {
+        value.set(value.get() + 1);
     }
 
-    public static int get(){
-        return  value.get();
+    public static int get() {
+        return value.get();
     }
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService exec = Executors.newCachedThreadPool();
-        for(int i = 0;i<5;i++){
+        for (int i = 0; i < 5; i++) {
             exec.execute(new Accessor(i));
         }
-        Thread.sleep(3);
         exec.shutdownNow();
     }
 }
