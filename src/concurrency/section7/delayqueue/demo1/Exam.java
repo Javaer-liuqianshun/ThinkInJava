@@ -1,4 +1,4 @@
-package concurrency.section7.delayqueue;
+package concurrency.section7.delayqueue.demo1;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -10,6 +10,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * @ Author: liuqianshun
  * @ Description:
+ *
+ * 当把一个对象put进入DelayQueue会自动调用对象的compareTo()方法,然后按延时时间进行排序
+ *
+ * 当调用take()方法时,会取出队列中延时最小的对象
+ *
  * @ Date: Created in 2018-01-25
  * @ Modified:
  **/
@@ -32,7 +37,7 @@ public class Exam {
     public Exam(){
         for(int i=1; i<=EXAMINEE_NUM; i++){
             Examinee e = new Examinee(i);
-            examinees.offer(e);
+            examinees.put(e);
             map.put(i, e);
         }
     }

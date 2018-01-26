@@ -1,4 +1,4 @@
-package concurrency.section7.delayqueue;
+package concurrency.section7.delayqueue.demo1;
 
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
