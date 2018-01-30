@@ -12,8 +12,8 @@ import java.util.Map;
  *
  * 思考:
  *  为什么java编程要求重写equals()一定要重写hashcode()
- *  原因: 因为如果创建一个对象,只重写了equals,如果放入Map集合中,会调用对象默认父类Object的hashcode(),
- *      那么Map集合中的键即使对象内容都一致,但是由于对象地址不一样,生成的hashcode()会不一样.
+ *  原因: 因为如果创建一个对象,只重写了equals,如果放入Map或者Set集合中,会调用对象默认父类Object的hashcode(),
+ *      那么Map或者Set集合中的键即使对象内容都一致,但是由于对象地址不一样,生成的hashcode()会不一样.
  *      hashcode()一样后会调用equals()
  *
  *      如: String s1 = new String("123")
