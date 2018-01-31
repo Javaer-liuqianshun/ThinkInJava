@@ -1,4 +1,4 @@
-package collection.section9.散列于散列码;
+package collection.section9.散列与散列码;
 
 import java.util.Random;
 
