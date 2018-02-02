@@ -1,0 +1,24 @@
+1: package io.section6.基本的文件输出;
+2: 
+3: import java.io.*;
+4: 
+5: /**
+6:  * @ Author: liuqianshun
+7:  * @ Description:
+8:  * @ Date: Created in 2018-02-02
+9:  * @ Modified:
+10:  **/
+11: public class BasicFileOut {
+12:     public static void main(String[] args) throws IOException {
+13:         FileReader reader = new FileReader("C:\\idea Projects\\04\\thinkinjava_practice\\src\\io\\section6\\基本的文件输出\\BasicFileOut.java");
+14:         BufferedReader in = new BufferedReader(reader);
+15:         BufferedWriter out = new BufferedWriter(new FileWriter("C:\\idea Projects\\04\\thinkinjava_practice\\src\\io\\section6\\基本的文件输出\\out.txt"));
+16:         int line = 1;
+17:         String s;
+18:         while ((s = in.readLine()) != null) {
+19:             out.write(line++ + ": " + s + "\n");
+20:         }
+21:         out.close();
+22:         in.close();
+23:     }
+24: }
