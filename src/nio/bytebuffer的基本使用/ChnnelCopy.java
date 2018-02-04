@@ -26,6 +26,12 @@ import java.nio.channels.FileChannel;
  *  write():向FileChannel写入数据
  *  clear():重新调用read()方法之前使用该方法,让每个read()做好准备
  *
+ *  rewind():返回到数据开始部分
+ *  reset():将此缓冲区的位置重置到之前mark的位置.
+ *  remaining():返回(limit - position)
+ *  hasRemaining():若有介于position和limit之间的元素,则返回true
+ *  mark():将mark设置为position
+ *
  * @ Date: Created in 2018-02-03
  * @ Modified:
  **/
