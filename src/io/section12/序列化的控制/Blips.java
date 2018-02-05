@@ -9,6 +9,7 @@ import java.io.*;
  * 书575案例
  *
  * 继承Externalizable,代替Serializable接口,来对序列化过程进行控制
+ * 把所需要的序列化的部分在writeExternal()中写入序列化文件
  *
  *
  *  Exception in thread "main" java.io.InvalidClassException: io.section12.序列化的控制.Blip2; no valid constructor
@@ -23,7 +24,7 @@ import java.io.*;
  *  Blip2中的构造器没有权限修饰符,默认default,而Blip1中的构造器的权限修饰符是public
  *
  *  说明使用Externalizable接口,反序列化必须要要有public的无参构造器
- *  而Serializable反序列化不需要构造器
+ *  而Serializable反序列化不需要构造器,因为Serializable对象完全以二进制存储
  *
  * @ Date: Created in 2018-02-04
  * @ Modified:
