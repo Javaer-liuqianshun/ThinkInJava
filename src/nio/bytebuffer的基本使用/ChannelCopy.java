@@ -35,7 +35,7 @@ import java.nio.channels.FileChannel;
  * @ Date: Created in 2018-02-03
  * @ Modified:
  **/
-public class ChnnelCopy {
+public class ChannelCopy {
 
     private static final int BSIZE = 1024;
 
